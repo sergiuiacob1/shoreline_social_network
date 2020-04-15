@@ -43,7 +43,7 @@ class UndirectedGraph:
             s += '\n'
         return s
 
-    def get_shortest_path(self, A: int, B: int) -> int:
+    def get_shortest_path(self, A: str, B: str) -> int:
         """Returns the length of the shortest path between nodes `A` and `B`.
 
         Uses a Bidirectional BFS"""
@@ -99,7 +99,7 @@ class UndirectedGraph:
 
         return -1
 
-    def get_shortest_path_simple_bfs(self, A: int, B: int) -> int:
+    def get_shortest_path_simple_bfs(self, A: str, B: str) -> int:
         """Returns the length of the shortest path between nodes `A` and `B`.
 
         Uses a simple BFS"""
