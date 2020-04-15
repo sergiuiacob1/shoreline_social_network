@@ -45,13 +45,41 @@ However, this is a classical graph problem, able to be solved with **BFS** (Brea
 The advantage BFS has over DFS is that the first time it reaches it's goal node (`B`), it does so with the least number of steps taken.
 In the worst case it does the same thing as DFS, going through all of the edges, so it has a time complexity of `O(n + m)`.
 However, that's only on certain type of graphs, for example on a binary tree.
-In real life, it will do much better, especially with our graph configuration.
+In real life, however, it will do better most of the times.
+
+Another solutions could have consisted in Bellman-Ford, which isn't difficult to implement, or Dijkstra with a min-heap, to keep track of the closest node at all times.
+
+We can extend the BFS to a **Bidirectional BFS**, in which we start the search from both ends, `A` and `B`.
+It's a easy-to-implement extension if one knows BFS, so I'll go with this option.
+The advantage this has over a simple BFS is that it will cut the search time in half.
 
 ## Question 3: Please enumerate the test cases you considered and explain their relevance.
-These are some special cases I've identified
-1. One of the nodes is isolated (somebody has no friends 😔). Will return `-1` for this case. (see test_1.in)
-2. There are cycles in the graph (test_2.in)
-3. There are no edges (test_3.in)
-4. Graph is a degenerate tree (test_4.in)
-5. Graph is complete (test_5.in)
-6. Graph has multiple connected componentes (test_6.in)
+I have created multiple tests in the [tests](./tests) directory. The structure is as follows:
+
+```
+n
+m
+a_1 b_1
+a_2 b_2
+...
+a_m b_m
+q
+a_1 b_1
+...
+a_q b_q
+```
+
+- first line: n = number of nodes
+- second line: m = number of edges
+- following m lines: the edges
+- next line: q = number of queries
+- next q lines: the nodes for which we want to find the shortest path between
+
+These are some special cases I've identified:
+1. One of the nodes is isolated (somebody has no friends 😔). Will return `-1` for this case: [tests/test_1.in](./tests/test_1.in)
+2. Distance from a node to itself. Will return `0` for this case: [tests/test_2.in](./tests/test_2.in)
+3. There are cycles in the graph: [tests/test_3.in](./tests/test_3.in)
+4. There are no edges: [tests/test_4.in](./tests/test_4.in)
+5. Graph is a degenerate tree: [tests/test_5.in](./tests/test_5.in)
+6. Graph is complete: [tests/test_6.in](./tests/test_6.in)
+7. Graph has multiple connected componentes: [tests/test_7.in](./tests/test_7.in)
