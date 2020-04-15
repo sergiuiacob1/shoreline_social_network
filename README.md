@@ -5,6 +5,11 @@ A chain of friends between two users, user `A` and user `B`, is a sequence of us
 
 Given a social network and two users, user `A` and user `B`, please write a function that computes the length of the shortest chain of friends between `A` and `B`.
 
+## Technical requirements
+The problem was implemented using Python3. It requires a minimum version of Python `3.6`.
+
+To run the code, execute: `python3 main.py`
+
 ## Question 1: How did you represent the social network? Why did you choose this representation?
 A social network is mostly defined by its users and the connections between these users.
 In our case, a "connection" is actually a "friendship", so we can assume that if user `A` is friends with user `B`, then `B` is also friends with `A`, since a friendship is a symmetrical relationship.
@@ -54,7 +59,10 @@ It's a easy-to-implement extension if one knows BFS, so I'll go with this option
 The advantage this has over a simple BFS is that it will cut the search time in half.
 
 ## Question 3: Please enumerate the test cases you considered and explain their relevance.
-I have created multiple tests in the [tests](./tests) directory. The structure is as follows:
+I have created multiple tests in the [tests](./tests) directory.
+Each test consists in an input (a file with the `.in` extension) and its result, created by the algorithm, which is a file with the same name but with the `.out` extension.
+
+The structure is as follows:
 
 ```
 n
